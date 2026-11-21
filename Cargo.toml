@@ -1,15 +1,26 @@
 [package]
 name = "sigmaos-repro-status"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "Apache-2.0"
-description = "SigmaOS sigmaos_repro_status component"
+description = "SigmaOS repro-status component — Arch package reproducibility status via rebuilderd (archlinux/arch-repro-status inspired)"
 
 [lib]
 name = "sigmaos_repro_status"
 path = "src/lib.rs"
 
+[[bin]]
+name = "sigmaos-repro-status"
+path = "src/main.rs"
+
 [dependencies]
 thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+tar = "0.4"
+zstd = "0.13"
+flate2 = "1"
 
 [dev-dependencies]
+tempfile = "3"

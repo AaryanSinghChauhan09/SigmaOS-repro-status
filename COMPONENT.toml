@@ -1,16 +1,16 @@
 [component]
 name = "SigmaOS-repro-status"
 tier = 2
-stability = "scaffold"
+stability = "beta"
 language = "rust"
-description = "SigmaOS repro-status component (Arch Linux inspired)"
-upstream = []
+description = "SigmaOS repro-status component — Arch package reproducibility status via rebuilderd, archweb + pacman localdb/syncdb (archlinux/arch-repro-status inspired)"
+upstream = ["https://github.com/archlinux/arch-repro-status"]
 
 [contract]
-provides = ["component"]
+provides = ["repro-status-cli", "rebuilderd-client", "pacman-syncdb"]
 depends_on = []
 
 [maturity]
 status = "Implemented"
-test_evidence = "Compiles and passes AAA unit tests"
-next_milestone = "Hardware and runtime integration"
+test_evidence = "cargo test: 29 tests pass (version parsing, desc/syncdb parsing, filtering, printing)"
+next_milestone = "Live verification against reproducible.archlinux.org"
